@@ -1,24 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛍️ Projects Marketplace
 
-## Getting Started
+A marketplace for buying and selling development projects built with Next.js 16, Prisma v7, and Neon PostgreSQL.
 
-First, run the development server:
+## 📚 Documentation
+
+| Document                                           | Purpose                                                    |
+| -------------------------------------------------- | ---------------------------------------------------------- |
+| **[DATABASE_GUIDE.md](./DATABASE_GUIDE.md)**       | 📘 Complete beginner-friendly guide to the database schema |
+| **[PRISMA_SETUP.md](./PRISMA_SETUP.md)**           | 📗 Quick setup instructions for Neon + Prisma              |
+| **[QUICK_REFERENCE.md](./QUICK_REFERENCE.md)**     | 📙 Daily commands and code snippets cheat sheet            |
+| **[FIXES_SUMMARY.md](./FIXES_SUMMARY.md)**         | ✅ Summary of recent fixes (S3, migrations)                |
+| **[TESTING_CHECKLIST.md](./TESTING_CHECKLIST.md)** | 🧪 Step-by-step testing guide                              |
+
+## 🚀 Quick Start
 
 ```bash
+# 1. Install dependencies
+npm install
+
+# 2. Setup environment variables (copy and edit .env)
+# Add DATABASE_URL, AWS credentials, Google OAuth, etc.
+
+# 3. Setup database
+npx prisma migrate dev
+npx prisma generate
+
+# 4. Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎯 Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- ✅ **Google OAuth** authentication via NextAuth v5
+- ✅ **Project Listings** with images, pricing, and tech stack
+- ✅ **S3 File Storage** for thumbnails, screenshots, and ZIP files
+- ✅ **Seller Dashboard** to manage projects
+- ✅ **Public Marketplace** for browsing projects
+- ✅ **Order Tracking** (ready for Razorpay integration)
+- ✅ **Full Type Safety** with TypeScript and Prisma
+
+## 🏗️ Tech Stack
+
+- **Framework:** Next.js 16 (App Router with Turbopack)
+- **Language:** TypeScript 5
+- **Database:** Neon PostgreSQL (cloud)
+- **ORM:** Prisma v7 with migrations
+- **Authentication:** NextAuth v5 (Google OAuth)
+- **Storage:** AWS S3
+- **Styling:** Tailwind CSS v4
+- **Icons:** Lucide React
+
+## 📊 Database Schema
+
+8 interconnected tables:
+
+- **User** - User accounts with roles
+- **Account** - OAuth providers
+- **Session** - Login sessions
+- **Project** - Marketplace listings
+- **ProjectImage** - Multiple screenshots
+- **Order** - Purchase records
+- **Payment** - Transaction details
+- **VerificationToken** - Email verification
+
+See [DATABASE_GUIDE.md](./DATABASE_GUIDE.md) for detailed explanations.
 
 ## Learn More
 

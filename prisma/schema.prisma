@@ -75,15 +75,20 @@ model Project {
   seller       User     @relation(fields: [sellerId], references: [id], name: "UserProjects", onDelete: Cascade)
   
   title        String
-  description  String
+  description  String   @db.Text
   price        Int      // in rupees
-  category     String?
+  category     String
   techStack    String[]
-  demoUrl      String?
+  
+  // URLs
+  videoUrl     String?  // demo/tutorial video
   projectUrl   String?  // live project website (optional)
-  githubUrl    String?
-  zipFileUrl   String?  // Cloudflare R2 or S3 link
-  thumbnailUrl String?
+  
+  // File storage
+  thumbnailUrl String?  // S3 thumbnail image
+  zipFileName  String?  // Original filename for the ZIP
+  zipFileSize  Int?     // Size in bytes
+  zipFileUrl   String?  // S3 URL for the ZIP file (private, for buyers only)
   
   images       ProjectImage[]
   orders       Order[]

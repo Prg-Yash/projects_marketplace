@@ -66,10 +66,13 @@ export default async function DashboardPage() {
               Manage your projects and sales
             </p>
           </div>
-          <button className="flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
+          <Link
+            href="/dashboard/create-project"
+            className="flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+          >
             <Plus className="h-5 w-5" />
             New Project
-          </button>
+          </Link>
         </div>
 
         {/* Stats */}
